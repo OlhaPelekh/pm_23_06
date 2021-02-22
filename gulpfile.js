@@ -1,10 +1,5 @@
-
-const { series } = require("gulp");
 var gulp = require("gulp");
-
-gulp.task("testTask", function () {
-  console.log("This is a test task!");
-});
+var browserSync = require("browser-sync").create();
 
 var sass = require("gulp-sass"),
   cssnano = require("gulp-cssnano"), 
@@ -14,6 +9,21 @@ var sass = require("gulp-sass"),
   concat = require("gulp-concat"), 
   uglify = require("gulp-uglify"), 
   rename = require("gulp-rename"); 
+
+gulp.task("testTask", function () {
+  console.log("This is a test task!");
+  done();
+});
+
+gulp.task('browserSync',function(){
+  browserSync.init({
+      server:{
+          baseDir:'src'
+      },
+  })
+})
+
+
 
 gulp.task("html", function () {
   return gulp.src("src/*.html").pipe(gulp.dest("dist"));
@@ -47,7 +57,6 @@ gulp.task("scripts", function () {
   ); 
 });
 
-
 gulp.task("imgs", function () {
   return gulp
     .src("src/images/*.+(jpg|jpeg|png|gif)")
@@ -61,13 +70,12 @@ gulp.task("imgs", function () {
     .pipe(gulp.dest("dist/images"));
 });
 
-
-gulp.task("watch", function () {
+gulp.task("watch", gulp.series('browserSync'), function () {
   gulp.watch("src/*.html", gulp.series("html"));
   gulp.watch("src/js/*.js", gulp.series("scripts"));
   gulp.watch("src/sass/*.sass", gulp.series("sass"));
   gulp.watch("src/images/*.+(jpg|jpeg|png|gif)", gulp.series("imgs"));
 });
 
+gulp.task ("default", gulp.series('browserSync'));
 
-gulp.task("default", gulp.series("html", "sass", "scripts", "imgs", "watch"));

@@ -31,6 +31,7 @@
     "gulp-watch": "^5.0.1"
   },
   "dependencies": {
+    "browser-sync": "^2.26.14",
     "node-sass": "^5.0.0"
   }
 }
