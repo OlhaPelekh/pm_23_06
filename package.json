@@ -1,0 +1,36 @@
+{
+  "name": "pm_23_06",
+  "version": "1.0.0",
+  "description": "Description",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OlhaPelekh/pm_23_06.git"
+  },
+  "keywords": [
+    "lab"
+  ],
+  "author": "Olha Pelekh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OlhaPelekh/pm_23_06/issues"
+  },
+  "homepage": "https://github.com/OlhaPelekh/pm_23_06#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-watch": "^5.0.1"
+  },
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  }
+}
